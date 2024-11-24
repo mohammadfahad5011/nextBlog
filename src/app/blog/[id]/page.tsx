@@ -49,7 +49,7 @@
 //   );
 // }
 
-import { blogInfo1, blogInfo2, Blog } from "@/data/blogs";
+import { blogInfo1, blogInfo2 } from "@/data/blogs";
 import Footer from "@/components/footer/Footer";
 import SingleBlogPage from "@/components/singleblogpage/SingleBlogPage";
 
@@ -63,15 +63,15 @@ export default function Page({ params }: PageProps) {
   const { id } = params;
 
   // Find the blog from either blogInfo1 or blogInfo2
-  const blog: Blog | undefined =
+  const blog =
     blogInfo1.find((item) => item.id === Number(id)) ||
     blogInfo2.find((item) => item.id === Number(id));
 
   if (!blog) {
-    return <p>Blog not found</p>; // Handle case where no blog matches the id
+    return <p>Blog not found</p>;
   }
 
-  const allblog: Blog[] = [...blogInfo1, ...blogInfo2];
+  const allblog = [...blogInfo1, ...blogInfo2];
 
   return (
     <>
